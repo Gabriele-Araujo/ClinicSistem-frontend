@@ -1,5 +1,5 @@
 import { formatDate } from "@angular/common";
-export class Prontuarios {
+export class Pacientes {
   nome: string;
   cpf: string;
   dataNascimento: string;
@@ -11,17 +11,17 @@ export class Prontuarios {
   estado: string;
   primeiraConsulta: string;
 
-  constructor(prontuarios) {
+  constructor(pacientes) {
     {
-      this.nome = prontuarios.nome || "";
-      this.cpf = prontuarios.cpf || "";
+      this.nome = pacientes.nome || "";
+      this.cpf = pacientes.cpf || "";
       this.dataNascimento = formatDate(new Date(), "yyyy-MM-dd", "en") || "";
-      this.cep = prontuarios.cep || "";
-      this.rua = prontuarios.rua || "";
-      this.bairro = prontuarios.bairro || "";
-      this.numero = prontuarios.numero || "";
-      this.cidade = prontuarios.cidade || "";
-      this.estado = prontuarios.estado || "";
+      this.cep = pacientes.cep || "";
+      this.rua = pacientes.rua || "";
+      this.bairro = pacientes.bairro || "";
+      this.numero = pacientes.numero || "";
+      this.cidade = pacientes.cidade || "";
+      this.estado = pacientes.estado || "";
       this.primeiraConsulta = formatDate(new Date(), "yyyy-MM-dd", "en") || "";
     }
   }

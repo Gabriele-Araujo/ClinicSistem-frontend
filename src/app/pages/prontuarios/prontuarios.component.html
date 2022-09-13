@@ -5,3 +5,49 @@
     </div>
   </div>
 </div>
+
+<!-- Page content -->
+<div class="container-fluid mt--7">
+  <!-- Table -->
+  <div class="row">
+    <div class="col">
+      <div class="card shadow">
+        <div class="card-header border-0">
+          <h3 class="mb-0">Pacientes Table</h3>
+        </div>
+        <div class="table-responsive">
+          <table class="table align-items-center table-flush">
+            <thead class="thead-light">
+              <tr>
+                <th scope="col">Nome</th>
+                <th scope="col">CPF</th>
+                <th scope="col">Data de Nacimento</th>
+                <th scope="col">CEP</th>
+                <th scope="col">Rua</th>
+                <th scope="col">Bairro</th>
+                <th scope="col">Numero</th>
+                <th scope="col">Cidade</th>
+                <th scope="col">Estado</th>
+                <th scope="col">Primeira Consulta</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of docList; let i=index">
+                <td>{{docList[i].nome}}</td>
+                <td>{{docList[i].cpf}}</td>
+                <td>{{docList[i].dataNascimento}}</td>
+                <td>{{docList[i].cep}}</td>
+                <td>{{docList[i].rua}}</td>
+                <td>{{docList[i].bairro}}</td>
+                <td>{{docList[i].numero}}</td>
+                <td>{{docList[i].cidade}}</td>
+                <td>{{docList[i].estado}}</td>
+                <td>{{docList[i].primeiraConsulta}}</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
