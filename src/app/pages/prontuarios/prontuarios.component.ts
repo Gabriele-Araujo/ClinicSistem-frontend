@@ -1,19 +1,28 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Pacientes } from 'src/assets/models/pacientes.model';
-import { MatDialog } from "@angular/material/dialog";
 import { PacientesService } from 'src/assets/service/pacientes.service';
+import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+import { PacienteComponent } from './paciente/paciente.component';
+import { MatDialogModule, MatDialog, MatDialogRef } from '@angular/material/dialog';
 
 
 @Component({
   selector: 'app-prontuarios',
   templateUrl: './prontuarios.component.html',
-  styleUrls: ['./prontuarios.component.scss']
+  styleUrls: ['./prontuarios.component.scss'],
+  providers: [PacientesService,
+    {
+    provide: MatDialogRef,
+    useValue: {}
+    }
+  ]
 })
-export class ProntuariosComponent implements OnInit {
+export class ProntuariosComponent {
   docList: Pacientes[];
   constructor(
-    public pacientesService: PacientesService
+    private pacientesService: PacientesService,
+    public dialog: MatDialog
   ) {}
 
   ngOnInit() {
@@ -23,7 +32,10 @@ export class ProntuariosComponent implements OnInit {
   getList() {
     this.pacientesService.getAllPacientes().subscribe((data) => {
       this.docList = data;
-      console.log("DOC LIST: ", this.docList[0]);
     });
+  }
+
+  newPaciente() {
+    this.dialog.open(PacienteComponent, {});
   }
 }

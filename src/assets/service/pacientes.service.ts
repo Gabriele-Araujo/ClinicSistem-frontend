@@ -8,13 +8,11 @@ import { Pacientes } from "../models/pacientes.model";
 })
 export class PacientesService {
 
-  private API_URL = "http://localhost:5000/";
+  private API_URL = "https://localhost:5001/";
   constructor(private httpClient: HttpClient) {}
 
   getAllPacientes(): Observable<any> {
-    return this.httpClient.get<Pacientes[]>(this.API_URL+ "paciente", {
-      headers: new HttpHeaders({ "Content-Type": "application/json" }),
-    });
+    return this.httpClient.get<Pacientes[]>(this.API_URL + 'paciente');
   }
 }
 
